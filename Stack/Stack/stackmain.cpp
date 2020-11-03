@@ -3,12 +3,21 @@
 
 #include <iostream>
 #include "Stack.h"
+#include "Сalculator.h"
 
 int main()
 {
-    Stack<int> a(20);
-    a.Push(5);
+	Calculator calc;
+	calc.SetFormula("2+2)*2");
+	if (calc.CheckBrackets() == true)
+	{
 
+	}
+	else
+	{
+		cout << "Wrong brackets.";
+
+	}
 }
 
 // Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"

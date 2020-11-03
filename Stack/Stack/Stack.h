@@ -58,7 +58,7 @@ public:
 			return false;
 		}
 	}
-	void Push(T a)
+	void Push(T a) //положить
 	{
 		if (Full())
 		{
@@ -67,7 +67,7 @@ public:
 		mas[size] = a;
 		size++;
 	}
-	T Pop()
+	T Pop() //извлечь
 	{
 		if (Empty())
 		{
@@ -76,7 +76,7 @@ public:
 		size--;
 		return mas[size];
 	}
-	T Top()
+	T Top() //посмотреть что на вершине
 	{
 		if (Empty())
 		{
