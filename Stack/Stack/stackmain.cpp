@@ -8,7 +8,7 @@
 int main()
 {
 	Calculator calc;
-	calc.SetFormula("2+2)*2");
+	calc.SetFormula("(2+3)*4");
 	if (calc.CheckBrackets() == true)
 	{
 
@@ -18,6 +18,7 @@ int main()
 		cout << "Wrong brackets.";
 
 	}
+	
 }
 
 // Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"

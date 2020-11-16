@@ -6,7 +6,7 @@ class Stack
 	int size,max_size;
 	T* mas;
 public:
-	Stack(int Max_size=10)
+	Stack(int Max_size=2)
 	{
 		max_size = Max_size;
 		mas = new T[max_size];
