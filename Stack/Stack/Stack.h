@@ -6,10 +6,18 @@ class Stack
 	int size,max_size;
 	T* mas;
 public:
-	Stack(int Max_size=2)
+	Stack(int Max_size=10)
 	{
+		if (Max_size <= 0)
+		{
+			throw Max_size;
+		}
 		max_size = Max_size;
 		mas = new T[max_size];
+		for (int i = 0; i < max_size; i++)
+		{
+			mas[i] = 0;
+		}
 		size = 0;
 	}
 	~Stack()
@@ -35,11 +43,46 @@ public:
 			max_size = m.max_size;
 			mas = new T[max_size];
 		}
+		size = m.size;
 		for (int i = 0; i < size; i++)
 		{
 			mas[i] = m.mas[i];
 		}
 		return (*this);
+	}
+	bool operator == (const Stack<T>& s)
+	{
+		//if (this != &s)
+		if (max_size != s.max_size || size != s.size)
+		{
+			return false;
+		}
+		for (int i = 0; i < size; i++)
+		{
+			if (mas[i] != s.mas[i])
+			{
+				return false;
+			}
+		}
+		
+		return true;
+	}
+	bool operator != (const Stack<T>& s)
+	{
+		//if (this != &s)
+		/*if (max_size != s.max_size || size != s.size)
+		{
+			return false;
+		}
+		for (int i = 0; i < size; i++)
+		{
+			if (mas[i] != s.mas[i])
+			{
+				return false;
+			}
+		}
+		return true;*/
+		return !(*this == s);
 	}
 	bool Empty()
 	{
@@ -60,9 +103,9 @@ public:
 	}
 	void Push(T a) //ïîëîæèòü
 	{
-		if (Full())
+		if (Full() ==true)
 		{
-			throw - 1;
+			throw "Stack is full";
 		}
 		mas[size] = a;
 		size++;
@@ -71,7 +114,7 @@ public:
 	{
 		if (Empty())
 		{
-			throw 0;
+			throw "Stack is empty";
 		}
 		size--;
 		return mas[size];
@@ -80,8 +123,16 @@ public:
 	{
 		if (Empty())
 		{
-			throw 0;
+			throw "Stack is empty";
 		}
-		return mas[size];
+		return mas[size-1];
+	}
+	void Ñlear() 
+	{
+		size=0;
+	}
+	int Size() 
+	{ 
+		return size; 
 	}
 };

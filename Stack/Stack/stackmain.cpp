@@ -1,24 +1,28 @@
-﻿// Stack.cpp : Этот файл содержит функцию "main". Здесь начинается и заканчивается выполнение программы.
-//
-
-#include <iostream>
+﻿#include <iostream>
 #include "Stack.h"
 #include "Сalculator.h"
+#include <iostream>
+
+using namespace std;
 
 int main()
 {
-	Calculator calc;
-	calc.SetFormula("(2+3)*4");
-	if (calc.CheckBrackets() == true)
+	string userExp;
+	TCalculator calc;
+	cout << "Enter your expession: " << endl;
+	cin >> userExp;
+	calc.SetFormula(userExp);
+	try
 	{
-
+		cout << "Arithmetical expression: " << calc.GetInfix() << endl;
+		calc.ToPostfix();
+		cout << "Postfix form: " << calc.GetPostfix() << endl;
+		cout << "Result: " << calc.CalcPostfix() << endl;
 	}
-	else
-	{
-		cout << "Wrong brackets.";
+	catch (const char* n) { std::cout << n << std::endl; }
 
-	}
-	
+	system("pause");
+	return 0;
 }
 
 // Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"
